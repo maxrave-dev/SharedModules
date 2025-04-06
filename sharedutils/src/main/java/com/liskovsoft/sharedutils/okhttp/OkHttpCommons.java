@@ -1,7 +1,7 @@
 package com.liskovsoft.sharedutils.okhttp;
 
-import android.os.Build.VERSION;
-import com.liskovsoft.sharedutils.BuildConfig;
+import android.os.Build;
+
 import com.liskovsoft.sharedutils.helpers.Helpers;
 import com.liskovsoft.sharedutils.mylogger.Log;
 import com.liskovsoft.sharedutils.okhttp.interceptors.RateLimitInterceptor;
@@ -120,7 +120,7 @@ public final class OkHttpCommons {
     private static void setupConnectionFixOrigin(OkHttpClient.Builder okBuilder) {
         // TLS 1.2 not supported on pre Lollipop (fallback to TLS 1.0)
         // Note, TLS 1.0 doesn't have SNI support. So, fix should work.
-        if (VERSION.SDK_INT <= 19) {
+        if (Build.VERSION.SDK_INT <= 19) {
             return;
         }
 
@@ -207,7 +207,7 @@ public final class OkHttpCommons {
      */
     @SuppressWarnings("deprecation")
     private static void configureToIgnoreCertificate(OkHttpClient.Builder builder) {
-        if (VERSION.SDK_INT > 19) {
+        if (Build.VERSION.SDK_INT > 19) {
             return;
         }
 
@@ -300,15 +300,7 @@ public final class OkHttpCommons {
     }
 
     private static void debugSetup(OkHttpClient.Builder okBuilder) {
-        if (BuildConfig.DEBUG) {
-            // Profiler could cause OutOfMemoryError when testing.
-            // Also outputs to logcat tons of info.
-            // If you enable it to all requests - expect slowdowns.
-            if (enableProfiler) {
-                addProfiler(okBuilder);
-            }
-            addLogger(okBuilder);
-        }
+
     }
 
     private static void addProfiler(OkHttpClient.Builder okBuilder) {

@@ -2,6 +2,7 @@ apply from: '../constants.gradle'
 apply plugin: 'com.android.library'
 
 android {
+    namespace "com.liskovsoft.sharedtests"
     compileSdkVersion project.ext.compileSdkVersion
     buildToolsVersion project.ext.buildToolsVersion
     testOptions.unitTests.includeAndroidResources = true
