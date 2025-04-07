@@ -9,8 +9,8 @@ android {
     testOptions.unitTests.includeAndroidResources = true
 
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 
     defaultConfig {
@@ -33,6 +33,9 @@ android {
     lintOptions {
         abortOnError true
         lintConfig rootProject.file('lint.xml')
+    }
+    kotlinOptions {
+        jvmTarget = '11'
     }
 }
 

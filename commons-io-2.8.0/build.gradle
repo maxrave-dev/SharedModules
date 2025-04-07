@@ -5,8 +5,8 @@ android {
     namespace "org.apache.commons.commonsio"
     // FIX: Default interface methods are only supported starting with Android N (--min-api 24)
     compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
+        sourceCompatibility JavaVersion.VERSION_11
+        targetCompatibility JavaVersion.VERSION_11
     }
 
     // allow other modules import debug/release configurations
