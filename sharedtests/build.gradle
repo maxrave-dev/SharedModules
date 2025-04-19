@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.tasks.CompileArtProfileTask
+
 apply from: '../constants.gradle'
 apply plugin: 'com.android.library'
 
@@ -40,4 +42,8 @@ dependencies {
 
     testImplementation 'junit:junit:' + junitVersion
     testImplementation 'org.robolectric:robolectric:' + robolectricVersion
+}
+
+tasks.withType(CompileArtProfileTask).configureEach {
+    enabled false
 }

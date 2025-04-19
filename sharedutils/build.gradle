@@ -1,3 +1,5 @@
+import com.android.build.gradle.internal.tasks.CompileArtProfileTask
+
 apply from: '../constants.gradle'
 apply plugin: 'kotlin-android'
 apply plugin: 'com.android.library'
@@ -82,4 +84,8 @@ dependencies {
     // Add kotlin support libs
     implementation 'androidx.core:core-ktx:' + kotlinCoreXVersion
     implementation 'org.jetbrains.kotlin:kotlin-stdlib-jdk7:' + kotlinVersion
+}
+
+tasks.withType(CompileArtProfileTask).configureEach {
+    enabled false
 }
