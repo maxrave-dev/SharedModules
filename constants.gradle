@@ -11,7 +11,7 @@ project.ext {
     // NOTE: api 26 orientation error fix: https://stackoverflow.com/a/52426009/1279056
     // NOTE: set api to 26 to fix text scroll speed and crashes on samsung
     targetSdkVersion = 26 // set target api = 26 to fix Android 8.0 error: "Only fullscreen opaque activities can request orientation"
-    compileSdkVersion = 35
+    compileSdkVersion = 36
     buildToolsVersion = '35'
     gradleVersion = '8.8.2' // https://developer.android.com/studio/releases/gradle-plugin#updating-gradle
     androidGradleVersion = '8.8.2' // last version compatible with IntellJ 2020.3
