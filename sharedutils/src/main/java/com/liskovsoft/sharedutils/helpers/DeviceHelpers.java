@@ -175,7 +175,7 @@ public final class DeviceHelpers {
      * @return whether the device has support for WebView, see
      * <a href="https://stackoverflow.com/a/69626735">https://stackoverflow.com/a/69626735</a>
      */
-    public static boolean supportsWebView() {
+    public static boolean isWebViewSupported() {
         try {
             CookieManager.getInstance();
             return true;
@@ -186,5 +186,23 @@ public final class DeviceHelpers {
 
     public static boolean isTCL() {
         return Build.MANUFACTURER.toLowerCase().contains("tcl") || Build.BRAND.toLowerCase().contains("tcl");
+    }
+
+    public static String getPrimaryAbi() {
+        String primaryAbi;
+
+        if (Build.VERSION.SDK_INT >= 21) {
+            // For modern devices, use the preferred SUPPORTED_ABIS
+            String[] abis = Build.SUPPORTED_ABIS;
+            if (abis != null && abis.length > 0) {
+                primaryAbi = abis[0];
+            } else {
+                primaryAbi = Build.CPU_ABI;
+            }
+        } else {
+            primaryAbi = Build.CPU_ABI;
+        }
+
+        return primaryAbi;
     }
 }
