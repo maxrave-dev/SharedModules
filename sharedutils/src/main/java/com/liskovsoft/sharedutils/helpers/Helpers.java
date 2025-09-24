@@ -728,8 +728,7 @@ public final class Helpers {
 
         first = normalize(first);
         second = normalize(second);
-
-        //return first.contains(second) || second.contains(first);
+        
         return first.contains(second);
     }
 
@@ -2083,6 +2082,10 @@ public final class Helpers {
         return getRandom().nextInt((max - min) + 1) + min;
     }
 
+    public static int getRandomNumber(int max) {
+        return getRandom().nextInt(max);
+    }
+
     public static <T> T getRandomItem(T[] items) {
         return items[Helpers.getRandomNumber(0, items.length - 1)];
     }
@@ -2111,7 +2114,7 @@ public final class Helpers {
         return arr;
     }
 
-    private static Random getRandom() {
+    public static Random getRandom() {
         if (sRandom == null) {
             sRandom = new Random();
         }
