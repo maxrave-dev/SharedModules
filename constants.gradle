@@ -54,7 +54,7 @@ project.ext {
     // playServicesCronetVersion = '18.0.1'
     // cronetApiVersion = '119.6045.31' // for testing
     // cronetApiVersion = '105.5195.68' // latest version with Android 7.0 support
-    cronetApiVersion = '98.4758.101' // fast too
+    cronetApiVersion = '141.7340.3' // 16kb page size
     // cronetApiVersion = '75.3770.101' // the fastest one (best choice)
     cronetOkHttpVersion = '0.1.0'
     
