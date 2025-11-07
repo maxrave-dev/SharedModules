@@ -33,38 +33,38 @@ public final class DeviceHelpers {
      * <p>Board: HiSilicon Hi3798MV200</p>
      */
     private static final boolean HI3798MV200 = Build.VERSION.SDK_INT == 24
-            && Build.DEVICE.equals("Hi3798MV200");
+        && Build.DEVICE.equals("Hi3798MV200");
     /**
      * <p>Zephir TS43UHD-2.</p>
      * <p>Blacklist reason: black screen</p>
      */
     private static final boolean CVT_MT5886_EU_1G = Build.VERSION.SDK_INT == 24
-            && Build.DEVICE.equals("cvt_mt5886_eu_1g");
+        && Build.DEVICE.equals("cvt_mt5886_eu_1g");
     /**
      * Hilife TV.
      * <p>Blacklist reason: black screen</p>
      */
     private static final boolean REALTEKATV = Build.VERSION.SDK_INT == 25
-            && Build.DEVICE.equals("RealtekATV");
+        && Build.DEVICE.equals("RealtekATV");
     /**
      * <p>Phillips 4K (O)LED TV.</p>
      * Supports custom ROMs with different API levels
      */
     private static final boolean PH7M_EU_5596 = Build.VERSION.SDK_INT >= 26
-            && Build.DEVICE.equals("PH7M_EU_5596");
+        && Build.DEVICE.equals("PH7M_EU_5596");
     /**
      * <p>Philips QM16XE.</p>
      * <p>Blacklist reason: black screen</p>
      */
     private static final boolean QM16XE_U = Build.VERSION.SDK_INT == 23
-            && Build.DEVICE.equals("QM16XE_U");
+        && Build.DEVICE.equals("QM16XE_U");
     /**
      * <p>Sony Bravia VH1.</p>
      * <p>Processor: MT5895</p>
      * <p>Blacklist reason: fullscreen crash / stuttering</p>
      */
     private static final boolean BRAVIA_VH1 = Build.VERSION.SDK_INT == 29
-            && Build.DEVICE.equals("BRAVIA_VH1");
+        && Build.DEVICE.equals("BRAVIA_VH1");
     /**
      * <p>Sony Bravia VH2.</p>
      * <p>Blacklist reason: fullscreen crash; this includes model A90J as reported in
@@ -72,7 +72,7 @@ public final class DeviceHelpers {
      * #9023</a></p>
      */
     private static final boolean BRAVIA_VH2 = Build.VERSION.SDK_INT == 29
-            && Build.DEVICE.equals("BRAVIA_VH2");
+        && Build.DEVICE.equals("BRAVIA_VH2");
     /**
      * <p>Sony Bravia Android TV platform 2.</p>
      * Uses a MediaTek MT5891 (MT5596) SoC.
@@ -120,29 +120,29 @@ public final class DeviceHelpers {
     public static int dpToPx(@Dimension(unit = Dimension.DP) final int dp,
                              @NonNull final Context context) {
         return (int) TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_DIP,
-                dp,
-                context.getResources().getDisplayMetrics());
+            TypedValue.COMPLEX_UNIT_DIP,
+            dp,
+            context.getResources().getDisplayMetrics());
     }
 
     public static int spToPx(@Dimension(unit = Dimension.SP) final int sp,
                              @NonNull final Context context) {
         return (int) TypedValue.applyDimension(
-                TypedValue.COMPLEX_UNIT_SP,
-                sp,
-                context.getResources().getDisplayMetrics());
+            TypedValue.COMPLEX_UNIT_SP,
+            sp,
+            context.getResources().getDisplayMetrics());
     }
 
     public static boolean isLandscape(final Context context) {
         return context.getResources().getDisplayMetrics().heightPixels < context.getResources()
-                .getDisplayMetrics().widthPixels;
+            .getDisplayMetrics().widthPixels;
     }
 
     public static boolean hasAnimationsAnimatorDurationEnabled(final Context context) {
         return Settings.System.getFloat(
-                context.getContentResolver(),
-                Settings.Global.ANIMATOR_DURATION_SCALE,
-                1F) != 0F;
+            context.getContentResolver(),
+            Settings.Global.ANIMATOR_DURATION_SCALE,
+            1F) != 0F;
     }
 
     /**
@@ -159,16 +159,16 @@ public final class DeviceHelpers {
     public static boolean shouldSupportMediaTunneling() {
         // Maintainers note: update MEDIA_TUNNELING_DEVICES_UPDATE_APP_VERSION_CODE
         return !HI3798MV200
-                && !CVT_MT5886_EU_1G
-                && !REALTEKATV
-                && !QM16XE_U
-                && !BRAVIA_VH1
-                && !BRAVIA_VH2
-                && !BRAVIA_ATV2
-                && !BRAVIA_ATV3_4K
-                && !PH7M_EU_5596
-                && !TX_50JXW834
-                && !HMB9213NW;
+            && !CVT_MT5886_EU_1G
+            && !REALTEKATV
+            && !QM16XE_U
+            && !BRAVIA_VH1
+            && !BRAVIA_VH2
+            && !BRAVIA_ATV2
+            && !BRAVIA_ATV3_4K
+            && !PH7M_EU_5596
+            && !TX_50JXW834
+            && !HMB9213NW;
     }
 
     /**
@@ -209,5 +209,10 @@ public final class DeviceHelpers {
         }
 
         return primaryAbi;
+    }
+
+    public static int getMaxHeapMemoryMB() {
+        long maxMemoryBytes = Runtime.getRuntime().maxMemory();
+        return (int) (maxMemoryBytes / (1024 * 1024));
     }
 }
