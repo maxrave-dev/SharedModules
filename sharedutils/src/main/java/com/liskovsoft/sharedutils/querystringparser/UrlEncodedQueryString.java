@@ -2,13 +2,14 @@ package com.liskovsoft.sharedutils.querystringparser;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+
 import com.liskovsoft.sharedutils.helpers.Helpers;
 
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.regex.Pattern;
 
-class UrlEncodedQueryString implements UrlQueryString {
+public class UrlEncodedQueryString implements UrlQueryString {
     private static final Pattern VALIDATION_PATTERN = Pattern.compile("[^\\/?&]+=[^\\/&]+");
     @Nullable
     private String mQueryPrefix;
